@@ -3,17 +3,25 @@
 // in the html.
 
 //Ignore the top part ^^^^^^^^ Its done
-var script = document.createElement('script');
-script.src = src="https://code.jquery.com/jquery-3.2.1.js"
-document.getElementsByTagName('head')[0].appendChild(script);
 
-const events = document.querySelectorAll('.event')
-console.log
+//Gets all of the save buttons!
+const saveButtons = document.querySelectorAll(".saveBtn")
 
-var saveBtn = "btn saveBtn col-2 col-md-1"
-var inputAnswer = document.getElementById("#answer")
-var saveBtn = document.getElementById("saveBtn")
+//Added an event listener to each of the save buttons!
+saveButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
 
+//Gets the text area element and its value |aka stuff put in for that time.|
+    const textArea = this.previousElementSibling;
+    const texAreaValue = textArea.value.trim();
+
+//Gets the id of the time block element 
+    const timeBlockId = textArea.parentElement.id;
+
+//Saves the text area value and its associated id to local storage
+    localStorage.setItem(timeBlockId, textArea);
+  });
+});
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
