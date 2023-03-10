@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", function() {
 saveButtons.forEach(function(button) {
   button.addEventListener("click", function() {
     const textArea = this.previousElementSibling;
-    const texAreaValue = textArea.value.trim();
+    const texAreaValue = textArea.value.pass();
     const timeBlockId = textArea.parentElement.id;
-    localStorage.setItem(timeBlockId, textArea);
+    localStorage.setItem(timeBlockId, textAreaValue);
 });
 
 });
