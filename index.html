@@ -35,17 +35,14 @@
         <p id="currentDay" class="lead"></p>
       </h2>
 
-      <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6/dayjs.min.js"></script>
+    </header>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6/dayjs.min.js"></script>
     <script>
       const currentDay = dayjs().format("dddd, MMMM D, YYYY");
       document.getElementById("currentDay").textContent = currentDay;
     </script>
-    </header>
+
     <div class="line-1"></div>
-
-    
-    </div>
-
 
     <div class="container-fluid px-5">
       <!-- Use class for "past", "present", and "future" to apply styles to the

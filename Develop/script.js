@@ -3,24 +3,19 @@
 // in the html.
 
 //Ignore the top part ^^^^^^^^ Its done
+document.addEventListener("DOMContentLoaded", function() {
+  const saveButtons = document.querySelectorAll(".saveBtn");
 
-//Gets all of the save buttons!
-const saveButtons = document.querySelectorAll(".saveBtn")
-
-//Added an event listener to each of the save buttons!
-saveButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
-
-//Gets the text area element and its value |aka stuff put in for that time.|
+saveButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
     const textArea = this.previousElementSibling;
     const texAreaValue = textArea.value.trim();
-
-//Gets the id of the time block element 
     const timeBlockId = textArea.parentElement.id;
-
-//Saves the text area value and its associated id to local storage
     localStorage.setItem(timeBlockId, textArea);
-  });
+});
+
+});
+
 });
 
   // TODO: Add a listener for click events on the save button. This code should
