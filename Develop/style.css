@@ -4,17 +4,6 @@ body {
   
 }
 
-
-h1.display-3 {
-  align-items: center;
-  align-self: center;
-  align-content: center;
-}
-
-.currentDay {
-  text-align: center;
-}
-
 textarea {
   background: transparent;
   border: none;
@@ -27,6 +16,22 @@ textarea {
 .description {
   white-space: pre-wrap;
 }
+
+h1 {
+			max-width: 600px;
+			margin: 0 auto;
+			background-color: #ffffff;
+      font-size: 60px;
+      align-self: center;
+		}
+
+h2 {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  font-size: 60px;
+}
+
 
 .time-block {
   border-radius: 15px;
