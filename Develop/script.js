@@ -7,12 +7,13 @@ var script = document.createElement('script');
 script.src = src="https://code.jquery.com/jquery-3.2.1.js"
 document.getElementsByTagName('head')[0].appendChild(script);
 
+const events = document.querySelectorAll('.event')
+console.log
 
 var saveBtn = "btn saveBtn col-2 col-md-1"
 var inputAnswer = document.getElementById("#answer")
 var saveBtn = document.getElementById("saveBtn")
 
-saveBtn.addEventListener("click", saveToStorage())
 
 function saveToStorage() ({
 localStorage.setItem("task", inputAnswer.innerHTML);
