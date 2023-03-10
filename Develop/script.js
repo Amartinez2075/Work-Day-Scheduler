@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 saveButtons.forEach(function(button) {
   button.addEventListener("click", function() {
     const textArea = this.previousElementSibling;
-    const textAreaValue = textArea.value.pass();
+    const textAreaValue = textArea.value.trim();
     const timeBlockId = textArea.parentElement.id;
     localStorage.setItem(timeBlockId, textAreaValue);
 });
