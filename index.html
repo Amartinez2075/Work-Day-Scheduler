@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="Develop\style.css" />
+    <link rel="stylesheet" href="Develop/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
@@ -31,11 +31,12 @@
       <p id="currentDay" class="lead"></p>
     </header>
 
-    <script src="https://day.js.org/en/"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6/dayjs.min.js"></script>
     <script>
-      dayjs('2023-03-10').format('DD/MM/YYYY')
+      const currentDay = dayjs().format("dddd, MMMM D, YYYY");
+      document.getElementById("currentDay").textContent = currentDay;
     </script>
-    
+
     <div class="container-fluid px-5">
       <!-- Use class for "past", "present", and "future" to apply styles to the
         time-block divs accordingly. The javascript will need to do this by
@@ -129,6 +130,6 @@
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
     crossorigin="anonymous"></script>
 
-    <script src="C:\Users\Ashar\bootcamp\Module Challenges\Work Day Scheduler\Develop\script.js"></script>
+    <script src="Develop\script.js"></script>
   </body>
 </html>

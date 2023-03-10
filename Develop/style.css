@@ -11,6 +11,10 @@ h1.display-3 {
   align-content: center;
 }
 
+.currentDay {
+  text-align: center;
+}
+
 textarea {
   background: transparent;
   border: none;

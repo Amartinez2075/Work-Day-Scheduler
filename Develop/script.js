@@ -15,10 +15,6 @@ var inputAnswer = document.getElementById("#answer")
 var saveBtn = document.getElementById("saveBtn")
 
 
-function saveToStorage() ({
-localStorage.setItem("task", inputAnswer.innerHTML);
-});
-
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
