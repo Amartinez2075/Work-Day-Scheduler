@@ -32,6 +32,10 @@ h2 {
   font-size: 60px;
 }
 
+.line-1 {
+  height: 15px;
+  background: black;
+}
 
 .time-block {
   border-radius: 15px;
