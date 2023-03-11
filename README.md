@@ -21,5 +21,6 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 ```
-![Waka Waka](https://user-images.githubusercontent.com/123604658/224505163-1f7cbcc4-be84-47dd-a418-c5bf0fa5cb53.PNG)Waka Waka.PNG
+![Waka Waka](https://user-images.githubusercontent.com/123604658/224505191-c9959c09-72db-440f-b453-4a8c6032d13d.PNG)
+
 
