@@ -1,13 +1,11 @@
 # 05 Third-Party APIs: Work Day Scheduler
 ## User Story
 
-```md
 AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
 SO THAT I can manage my time effectively
 
-
-```## Acceptance Criteria
+## Acceptance Criteria
 
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
@@ -23,6 +21,5 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 ```
-
-Waka Waka.PNG
+![Waka Waka](https://user-images.githubusercontent.com/123604658/224505163-1f7cbcc4-be84-47dd-a418-c5bf0fa5cb53.PNG)Waka Waka.PNG
 
