@@ -2,41 +2,45 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-// Gets the current date and time
-const currentDate = new Date();
-
-// Gets the current hour in 24-hour format
-let currentHour24 = currentDate.getHours();
-
-// Converts the current hour to 12-hour format
-let currentHour12 = currentHour24 % 12;
-if (currentHour12 === 0) {
-  currentHour12 = 12;
-}
-
-// Adds the "past", "present", or "future" class to each time block
+const saveButtons = document.querySelectorAll(".saveBtn");
 const timeBlocks = document.querySelectorAll(".time-block");
 
-timeBlocks.forEach(function (timeBlock) {
-  const timeBlockHour = parseInt(timeBlock.id.split("-")[1]);
+// Added an event listener to each of the save buttons!
+saveButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
 
-  if (timeBlockHour < currentHour24) {
+    // Gets the text area element and its value |aka stuff put in for that time.|
+    const textArea = this.previousElementSibling;
+    const textAreaValue = textArea.value.trim();
+
+    // Gets the id of the time block element 
+    const timeBlockId = textArea.parentElement.id;
+
+    // Saves the text area value and its associated id to local storage
+    localStorage.setItem(timeBlockId, textAreaValue);
+  });
+});
+
+// Loops through each time block
+timeBlocks.forEach(function (timeBlock) {
+
+  // Gets the id of the time block element
+  const timeBlockId = timeBlock.id;
+
+  // Gets the current hour in 12-hour format
+  const currentHour = moment().format("h");
+
+  // Converts the time block id to 12-hour format
+  const timeBlockHour = moment(timeBlockId, "HH").format("h");
+
+  // Compares the id to the current hour and applies the appropriate class
+  if (timeBlockHour < currentHour) {
     timeBlock.classList.add("past");
-  } else if (timeBlockHour === currentHour24) {
+  } else if (timeBlockHour === currentHour) {
     timeBlock.classList.add("present");
   } else {
     timeBlock.classList.add("future");
   }
-  
-  // Converts the time block hour to 12-hour format
-  let timeBlockHour12 = timeBlockHour % 12;
-  if (timeBlockHour12 === 0) {
-    timeBlockHour12 = 12;
-  }
-
-  // Displays the time in 12-hour format
-  const timeBlockDisplay = timeBlock.querySelector(".hour");
-  timeBlockDisplay.textContent = `${timeBlockHour12} ${timeBlockHour12 >= 12 ? "PM" : "AM"}`;
 });
 
 
