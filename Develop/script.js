@@ -2,48 +2,61 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-const saveButtons = document.querySelectorAll(".saveBtn");
-const timeBlocks = document.querySelectorAll(".time-block");
+$(document).ready(function() {
 
-// Added an event listener to each of the save buttons!
-saveButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
+  const saveButtons = $(".saveBtn");
+  const timeBlocks = $(".time-block");
 
-    // Gets the text area element and its value |aka stuff put in for that time.|
-    const textArea = this.previousElementSibling;
-    const textAreaValue = textArea.value.trim();
+  // Added an event listener to each of the save buttons!
+  saveButtons.each(function() {
+    $(this).on("click", function() {
 
-    // Gets the id of the time block element 
-    const timeBlockId = textArea.parentElement.id;
+      // Gets the text area element and its value |aka stuff put in for that time.|
+      const textArea = $(this).prev();
+      const textAreaValue = textArea.val().trim();
 
-    // Saves the text area value and its associated id to local storage
-    localStorage.setItem(timeBlockId, textAreaValue);
+      // Gets the id of the time block element 
+      const timeBlockId = textArea.parent().attr("id");
+
+      // Saves the text area value and its associated id to local storage
+      localStorage.setItem(timeBlockId, textAreaValue);
+    });
   });
+
+  const textAreas = document.querySelectorAll('textarea');
+
+  textAreas.forEach(function (textArea) {
+    const textAreaParentId = textArea.parentElement.id;
+    const textAreaValue = localStorage.getItem(textAreaParentId) || '';
+    textArea.value = textAreaValue;
+  });
+  // Loops through each time block
+  timeBlocks.each(function() {
+
+    // Gets the id of the time block element
+    const timeBlockId = $(this).attr("id");
+
+    // Gets the current hour in 12-hour format
+    const currentHour = moment().format("H");
+
+    // Converts the time block id to 12-hour format
+    const timeBlockHour = moment(timeBlockId, "hha").format("H");
+
+    // Compares the id to the current hour and applies the appropriate class
+    if (parseInt(timeBlockHour) < parseInt(currentHour)) {
+      $(this).addClass("past");
+    } else if (timeBlockHour == currentHour) {
+      $(this).addClass("present");
+    } else {
+      $(this).addClass("future");
+    }
+  });
+
+  
+
+  // TODO: Retrieve data from local storage and update text areas
+
 });
-
-// Loops through each time block
-timeBlocks.forEach(function (timeBlock) {
-
-  // Gets the id of the time block element
-  const timeBlockId = timeBlock.id;
-
-  // Gets the current hour in 12-hour format
-  const currentHour = moment().format("h");
-
-  // Converts the time block id to 12-hour format
-  const timeBlockHour = moment(timeBlockId, "HH").format("h");
-
-  // Compares the id to the current hour and applies the appropriate class
-  if (timeBlockHour < currentHour) {
-    timeBlock.classList.add("past");
-  } else if (timeBlockHour === currentHour) {
-    timeBlock.classList.add("present");
-  } else {
-    timeBlock.classList.add("future");
-  }
-});
-
-
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
