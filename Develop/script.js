@@ -28,6 +28,7 @@ $(document).ready(function() {
   textAreas.forEach(function (textArea) {
     const textAreaParentId = textArea.parentElement.id;
     const textAreaValue = localStorage.getItem(textAreaParentId) || '';
+
     textArea.value = textAreaValue;
   });
   // Loops through each time block
@@ -45,8 +46,10 @@ $(document).ready(function() {
     // Compares the id to the current hour and applies the appropriate class
     if (parseInt(timeBlockHour) < parseInt(currentHour)) {
       $(this).addClass("past");
+
     } else if (timeBlockHour == currentHour) {
       $(this).addClass("present");
+      
     } else {
       $(this).addClass("future");
     }
